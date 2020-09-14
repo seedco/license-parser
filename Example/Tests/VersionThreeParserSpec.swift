@@ -46,19 +46,19 @@ class VersionThreeParserSpec: QuickSpec{
         expect(result.lastName).to(equal("PUBLIC"))
         expect(result.streetAddress).to(equal("789 E OAK AVE"))
         expect(result.postalCode).to(equal("A5K 4X9"))
-        expect(result.expirationDate).to(equal(self.formattedDate("20250425")))
-        expect(result.dateOfBirth).to(equal(self.formattedDate("19740328")))
-        expect(result.issueDate).to(equal(self.formattedDate("20150910")))
+        expect(result.expirationDate).to(equal(self.formattedDate(date: "20250425")))
+        expect(result.dateOfBirth).to(equal(self.formattedDate(date: "19740328")))
+        expect(result.issueDate).to(equal(self.formattedDate(date: "20150910")))
         expect(result.eyeColor).to(equal(EyeColor.Unknown))
         expect(result.country).to(equal(IssuingCountry.Canada))
       }
     }
   }
 
-  func formattedDate(date: String) -> NSDate?{
-    let formatter = NSDateFormatter()
+  func formattedDate(date: String) -> Date?{
+    let formatter = DateFormatter()
     formatter.dateFormat = "yyyyMMdd"
-    let expectedDate = formatter.dateFromString(date)
+    let expectedDate = formatter.date(from: date)
 
     return expectedDate
   }

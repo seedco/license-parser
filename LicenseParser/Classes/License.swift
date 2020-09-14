@@ -13,13 +13,13 @@ public struct License: ParsedLicense{
   public var middleName: String?
 
   /// The expiration date of the license
-  public var expirationDate: NSDate?
+  public var expirationDate: Date?
 
   /// The issue date of the license
-  public var issueDate: NSDate?
+  public var issueDate: Date?
 
   /// The license holder's date of birth
-  public var dateOfBirth: NSDate?
+  public var dateOfBirth: Date?
 
   /// The license holder's gender
   public var gender: LicenseParser.Gender
@@ -132,7 +132,7 @@ public struct License: ParsedLicense{
   */
   public init(
     firstName: String?, lastName: String?, middleName: String?,
-    expirationDate: NSDate?, issueDate: NSDate?, dateOfBirth: NSDate?,
+    expirationDate: Date?, issueDate: Date?, dateOfBirth: Date?,
     gender: Gender, eyeColor: EyeColor, height: Double?, streetAddress: String?,
     city: String?, state: String?, postalCode: String?, customerId: String?,
     documentId: String?, country: IssuingCountry, middleNameTruncation: Truncation,
@@ -220,7 +220,7 @@ public struct License: ParsedLicense{
   */
   public func isExpired() -> Bool {
     guard let withDate = self.expirationDate else { return false }
-    guard NSDate().compare(withDate) == NSComparisonResult.OrderedDescending else { return false }
+    guard Date().compare(withDate as Date) == ComparisonResult.orderedDescending else { return false }
     return true
   }
 
@@ -231,7 +231,7 @@ public struct License: ParsedLicense{
   */
   public func hasBeenIssued() -> Bool {
     guard let withDate = self.issueDate else { return false }
-    guard NSDate().compare(withDate) == NSComparisonResult.OrderedDescending else { return false }
+    guard Date().compare(withDate as Date) == ComparisonResult.orderedDescending else { return false }
     return true
   }
 
@@ -271,11 +271,11 @@ public protocol ParsedLicense{
   /// The license holder's middle name
   var middleName: String? { get set }
   /// The expiration date of the license
-  var expirationDate: NSDate? { get set }
+  var expirationDate: Date? { get set }
   /// The issue date of the license
-  var issueDate: NSDate? { get set }
+  var issueDate: Date? { get set }
   /// The license holder's date of birth
-  var dateOfBirth: NSDate? { get set }
+  var dateOfBirth: Date? { get set }
   /// The license holder's gender
   var gender: LicenseParser.Gender { get set }
   /// The license holder's eye color

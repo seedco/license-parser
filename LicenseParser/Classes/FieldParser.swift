@@ -37,7 +37,7 @@ public protocol FieldParsing{
 
     - Returns: An optional value parsed out of the raw data
   */
-  func parseDate(key: String) -> NSDate?
+  func parseDate(key: String) -> Date?
 
   /**
     Parse the AAMVA expiration date out of the raw data
@@ -47,21 +47,21 @@ public protocol FieldParsing{
 
     - Returns: An optional value parsed out of the raw data
   */
-  func parseExpirationDate() -> NSDate?
+  func parseExpirationDate() -> Date?
 
   /**
     Parse the AAMVA issue date out of the raw data
 
     - Returns: An optional value parsed out of the raw data
   */
-  func parseIssueDate() -> NSDate?
+  func parseIssueDate() -> Date?
 
   /**
     Parse the AAMVA date of birth out of the raw data
 
     - Returns: An optional value parsed out of the raw data
   */
-  func parseDateOfBirth() -> NSDate?
+  func parseDateOfBirth() -> Date?
 
   /**
     Parse the AAMVA issuing country out of the raw data
@@ -113,9 +113,9 @@ public protocol FieldParsing{
   func parseHairColor() -> HairColor
 
   /**
-    The string format used with an NSDateFormatter to parse dates. Usually 'yyyyMMdd' or 'MMddyyyy'.
+    The string format used with an DateFormatter to parse dates. Usually 'yyyyMMdd' or 'MMddyyyy'.
 
-    - Returns: An NSDateFormatter formatter string acceptable date format
+    - Returns: An DateFormatter formatter string acceptable date format
   */
   func getDateFormat() -> String
 
@@ -195,8 +195,8 @@ public class FieldParser: FieldParsing{
   */
 
   public func parseString(key: String) -> String?{
-    let identifier = fieldMapper.fieldFor(key)
-    return regex.firstMatch("\(identifier)(.+)\\b", data: data)
+    let identifier = fieldMapper.fieldFor(key: key)
+    return regex.firstMatch(pattern: "\(identifier)(.+)\\b", data: data)
   }
 
   /**
@@ -208,8 +208,8 @@ public class FieldParser: FieldParsing{
     - Returns: An optional value parsed out of the raw data
   */
   public func parseDouble(key: String) -> Double?{
-    let identifier = fieldMapper.fieldFor(key)
-    let result = regex.firstMatch("\(identifier)(\\w+)\\b", data: data)
+    let identifier = fieldMapper.fieldFor(key: key)
+    let result = regex.firstMatch(pattern: "\(identifier)(\\w+)\\b", data: data)
     guard let unwrappedResult = result else { return nil }
 
     return Double(unwrappedResult)
@@ -223,21 +223,21 @@ public class FieldParser: FieldParsing{
 
     - Returns: An optional value parsed out of the raw data
   */
-  public func parseDate(field: String) -> NSDate?{
-    guard let dateString = parseString(field) else { return nil }
+    public func parseDate(key field: String) -> Date?{
+    guard let dateString = parseString(key: field) else { return nil }
     guard !dateString.isEmpty else { return nil }
 
-    let formatter = NSDateFormatter()
+    let formatter = DateFormatter()
     formatter.dateFormat = getDateFormat()
-    guard let parsedDate = formatter.dateFromString(dateString) else { return nil }
+        guard let parsedDate = formatter.date(from: dateString) else { return nil }
 
-    return parsedDate
+        return parsedDate as Date
   }
 
   /**
-    The string format used with an NSDateFormatter to parse dates. Usually 'yyyyMMdd' or 'MMddyyyy'.
+    The string format used with an DateFormatter to parse dates. Usually 'yyyyMMdd' or 'MMddyyyy'.
 
-    - Returns: An NSDateFormatter formatter string acceptable date format
+    - Returns: An DateFormatter formatter string acceptable date format
   */
   public func getDateFormat() -> String {
     return "MMddyyyy"
@@ -249,7 +249,7 @@ public class FieldParser: FieldParsing{
     - Returns: An optional value parsed out of the raw data
   */
   public func parseFirstName() -> String?{
-    return parseString("firstName")
+    return parseString(key: "firstName")
   }
 
   /**
@@ -258,7 +258,7 @@ public class FieldParser: FieldParsing{
     - Returns: An optional value parsed out of the raw data
   */
   public func parseLastName() -> String?{
-    return parseString("lastName")
+    return parseString(key: "lastName")
   }
 
   /**
@@ -267,7 +267,7 @@ public class FieldParser: FieldParsing{
     - Returns: An optional value parsed out of the raw data
   */
   public func parseMiddleName() -> String?{
-    return parseString("middleName")
+    return parseString(key: "middleName")
   }
 
   /**
@@ -275,8 +275,8 @@ public class FieldParser: FieldParsing{
 
     - Returns: An optional value parsed out of the raw data
   */
-  public func parseExpirationDate() -> NSDate?{
-    return parseDate("expirationDate")
+  public func parseExpirationDate() -> Date?{
+    return parseDate(key: "expirationDate")
   }
 
   /**
@@ -284,8 +284,8 @@ public class FieldParser: FieldParsing{
 
     - Returns: An optional value parsed out of the raw data
   */
-  public func parseIssueDate() -> NSDate?{
-    return parseDate("issueDate")
+  public func parseIssueDate() -> Date?{
+    return parseDate(key: "issueDate")
   }
 
   /**
@@ -293,8 +293,8 @@ public class FieldParser: FieldParsing{
 
     - Returns: An optional value parsed out of the raw data
   */
-  public func parseDateOfBirth() -> NSDate?{
-    return parseDate("dateOfBirth")
+  public func parseDateOfBirth() -> Date?{
+    return parseDate(key: "dateOfBirth")
   }
 
   /**
@@ -303,7 +303,7 @@ public class FieldParser: FieldParsing{
     - Returns: An optional value parsed out of the raw data
   */
   public func parseCountry() -> IssuingCountry{
-    guard let country = parseString("country") else { return .Unknown }
+    guard let country = parseString(key: "country") else { return .Unknown }
     switch country{
     case "USA":
       return .UnitedStates
@@ -320,7 +320,7 @@ public class FieldParser: FieldParsing{
     - Returns: An optional value parsed out of the raw data
   */
   public func parseTruncationStatus(field: String) -> Truncation{
-    guard let truncation = parseString(field) else { return .Unknown }
+    guard let truncation = parseString(key: field) else { return .Unknown }
 
     switch truncation{
     case "T":
@@ -338,7 +338,7 @@ public class FieldParser: FieldParsing{
     - Returns: An optional value parsed out of the raw data
   */
   public func parseGender() -> Gender{
-    guard let gender = parseString("gender") else { return .Unknown }
+    guard let gender = parseString(key: "gender") else { return .Unknown }
     switch gender {
     case "1":
       return .Male
@@ -355,7 +355,7 @@ public class FieldParser: FieldParsing{
     - Returns: An optional value parsed out of the raw data
   */
   public func parseEyeColor() -> EyeColor{
-    guard let color = parseString("eyeColor") else { return .Unknown }
+    guard let color = parseString(key: "eyeColor") else { return .Unknown }
     switch color{
     case "BLK":
       return .Black
@@ -386,7 +386,7 @@ public class FieldParser: FieldParsing{
     - Returns: An optional value parsed out of the raw data
   */
   public func parseNameSuffix() -> NameSuffix{
-    guard let suffix = parseString("suffix") else { return .Unknown }
+    guard let suffix = parseString(key: "suffix") else { return .Unknown }
 
     switch suffix{
     case "JR":
@@ -422,7 +422,7 @@ public class FieldParser: FieldParsing{
     - Returns: An optional value parsed out of the raw data
   */
   public func parseHairColor() -> HairColor{
-    guard let color = parseString("hairColor") else { return .Unknown }
+    guard let color = parseString(key: "hairColor") else { return .Unknown }
 
     switch color {
     case "BAL":
@@ -452,10 +452,10 @@ public class FieldParser: FieldParsing{
     - Returns: An optional value parsed out of the raw data in inches
   */
   public func parseHeight() -> Double?{
-    guard let heightString = parseString("height") else { return nil }
-    guard let height = parseDouble("height") else { return nil }
+    guard let heightString = parseString(key: "height") else { return nil }
+    guard let height = parseDouble(key: "height") else { return nil }
 
-    if heightString.containsString("cm"){
+    if heightString.contains("cm"){
       return Double(round(height * FieldParser.INCHES_PER_CENTIMETER))
     }else{
       return height

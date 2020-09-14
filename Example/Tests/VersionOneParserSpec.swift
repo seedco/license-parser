@@ -563,9 +563,9 @@ class VersionOneParserSpec: QuickSpec {
             let sut = LicenseParser.Parser(data: self.validLicenseData())
             let result: LicenseParser.ParsedLicense = sut.parse()
 
-            let formatter = NSDateFormatter()
+            let formatter = DateFormatter()
             formatter.dateFormat = "yyyyMMdd"
-            let expectedDate = formatter.dateFromString("20350131")
+            let expectedDate = formatter.date(from: "20350131")
 
             expect(result.expirationDate).to(equal(expectedDate))
           }
@@ -595,9 +595,9 @@ class VersionOneParserSpec: QuickSpec {
             let sut = LicenseParser.Parser(data: self.validLicenseData())
             let result: LicenseParser.ParsedLicense = sut.parse()
 
-            let formatter = NSDateFormatter()
+            let formatter = DateFormatter()
             formatter.dateFormat = "MMddyyyy"
-            let expectedDate = formatter.dateFromString("10032013")
+            let expectedDate = formatter.date(from: "10032013")
 
             expect(result.issueDate).to(equal(expectedDate))
           }
@@ -627,9 +627,9 @@ class VersionOneParserSpec: QuickSpec {
             let sut = LicenseParser.Parser(data: self.validLicenseData())
             let result: LicenseParser.ParsedLicense = sut.parse()
 
-            let formatter = NSDateFormatter()
+            let formatter = DateFormatter()
             formatter.dateFormat = "yyyyMMdd"
-            let expectedDate = formatter.dateFromString("19700115")
+            let expectedDate = formatter.date(from: "19700115")
 
             expect(result.dateOfBirth).to(equal(expectedDate))
           }

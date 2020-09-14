@@ -26,8 +26,8 @@ class VersionFiveParserSpec: QuickSpec{
         expect(result.lastNameTruncation).to(equal(Truncation.Unknown))
         expect(result.middleName).to(equal("QUINCY"))
         expect(result.middleNameTruncation).to(equal(Truncation.Unknown))
-        expect(result.expirationDate).to(equal(self.dateFromString("08112019", dateFormat: "MMddyyyy")))
-        expect(result.issueDate).to(equal(self.dateFromString("10092015", dateFormat: "MMddyyyy")))
+        expect(result.expirationDate).to(equal(self.dateFromString(dateString: "08112019", dateFormat: "MMddyyyy")))
+        expect(result.issueDate).to(equal(self.dateFromString(dateString: "10092015", dateFormat: "MMddyyyy")))
         expect(result.gender).to(equal(Gender.Male))
         expect(result.eyeColor).to(equal(EyeColor.Brown))
         expect(result.height).to(equal(69))
@@ -40,7 +40,7 @@ class VersionFiveParserSpec: QuickSpec{
         expect(result.country).to(equal(IssuingCountry.UnitedStates))
         expect(result.streetAddressSupplement).to(beNil())
         expect(result.hairColor).to(equal(HairColor.Unknown))
-        expect(result.dateOfBirth).to(equal(self.dateFromString("08111972", dateFormat: "MMddyyyy")))
+        expect(result.dateOfBirth).to(equal(self.dateFromString(dateString: "08111972", dateFormat: "MMddyyyy")))
         expect(result.auditInformation).to(beNil())
         expect(result.inventoryControlNumber).to(beNil())
         expect(result.suffixAlias).to(beNil())
@@ -50,10 +50,10 @@ class VersionFiveParserSpec: QuickSpec{
     }
   }
 
-  func dateFromString(dateString: String, dateFormat: String) -> NSDate?{
-    let formatter = NSDateFormatter()
+  func dateFromString(dateString: String, dateFormat: String) -> Date?{
+    let formatter = DateFormatter()
     formatter.dateFormat = dateFormat
-    guard let parsedDate = formatter.dateFromString(dateString) else { return nil }
+    guard let parsedDate = formatter.date(from: dateString) else { return nil }
 
     return parsedDate
   }
