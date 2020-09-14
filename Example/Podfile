@@ -1,10 +1,10 @@
-source 'https://github.com/CocoaPods/Specs.git'
+source 'https://cdn.cocoapods.org/'
 
 
 use_frameworks!
 target 'LicenseParser_Tests' do
   pod 'LicenseParser', :path => '../'
 
-  pod 'Quick', "~> 0.9"
-  pod 'Nimble', "~> 4.1"
+  pod 'Quick', "= 3.0.0"
+  pod 'Nimble', "= 8.1.2"
 end
