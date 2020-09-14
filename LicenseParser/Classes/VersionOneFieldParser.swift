@@ -70,33 +70,33 @@ class VersionOneFieldParser: FieldParser{
         suffix = parseDriverLicenseName(key: "suffix")
     }
 
-    guard let nameSuffix = suffix else { return .Unknown }
+    guard let nameSuffix = suffix else { return .unknown }
 
     switch nameSuffix{
     case "JR":
-      return .Junior
+      return .junior
     case "SR":
-      return .Senior
+      return .senior
     case "1ST", "I":
-      return .First
+      return .first
     case "2ND", "II":
-      return .Second
+      return .second
     case "3RD", "III":
-      return .Third
+      return .third
     case "4TH", "IV":
-      return .Fourth
+      return .fourth
     case "5TH", "V":
-      return .Fifth
+      return .fifth
     case "6TH", "VI":
-      return .Sixth
+      return .sixth
     case "7TH", "VII":
-      return .Seventh
+      return .seventh
     case "8TH", "VIII":
-      return .Eighth
+      return .eighth
     case "9TH", "IX":
-      return .Ninth
+      return .ninth
     default:
-      return .Unknown
+      return .unknown
     }
   }
 

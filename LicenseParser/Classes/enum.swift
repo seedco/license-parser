@@ -3,170 +3,170 @@ import Foundation
 /**
   AAMVA Issuing Countries
 
-  - UnitedStates: The USA
-  - Canda: Canada, eh?
-  - Unknown: When the issuing country is not available
+  - unitedStates: The USA
+  - canda: Canada, eh?
+  - unknown: When the issuing country is not available
 */
 public enum IssuingCountry{
   /// The United States
-  case UnitedStates
+  case unitedStates
 
   /// Canada
-  case Canada
+  case canada
 
-  /// Unknown Issuing Country
-  case Unknown
+  /// unknown Issuing Country
+  case unknown
 }
 
 /**
   AAMVA Genders
 
-  - Male: Male
-  - Female: Female
-  - Other: Not yet part of the AAMVA spec
-  - Unknown: When the gender cannot be determined
+  - male: male
+  - female: female
+  - other: Not yet part of the AAMVA spec
+  - unknown: When the gender cannot be determined
 */
 public enum Gender{
 
-  /// Male
-  case Male
+  /// male
+  case male
 
-  /// Female
-  case Female
+  /// female
+  case female
 
-  /// Other
-  case Other
+  /// other
+  case other
 
-  /// Unknown Gender
-  case Unknown
+  /// unknown Gender
+  case unknown
 }
 
 /**
   AAMVA Eye Colors
 
-  - Black: Black eyes
-  - Blue: Blue eyes
-  - Brown: Brown eyes
-  - Gray: Gray eyes
-  - Green: Green eyes
-  - Hazel: Hazel eyes
-  - Maroon: Maroon eyes
-  - Pink: Pink eyes
-  - Dichromatic: Dichromatic eyes
-  - Unknown: Unknown eye color
+  - black: black eyes
+  - blue: blue eyes
+  - brown: brown eyes
+  - gray: gray eyes
+  - green: green eyes
+  - hazel: hazel eyes
+  - maroon: maroon eyes
+  - pink: pink eyes
+  - dichromatic: dichromatic eyes
+  - unknown: unknown eye color
 */
 public enum EyeColor{
-  /// Black eye color
-  case Black
-  /// Blue eye color
-  case Blue
-  /// Brown eye color
-  case Brown
-  /// Gray eye color
-  case Gray
-  /// Green eye color
-  case Green
-  /// Hazel eye color
-  case Hazel
-  /// Maroon eye color
-  case Maroon
-  /// Pink eye color
-  case Pink
-  /// Dichromatic eye color
-  case Dichromatic
-  /// Unknown eye color
-  case Unknown
+  /// black eye color
+  case black
+  /// blue eye color
+  case blue
+  /// brown eye color
+  case brown
+  /// gray eye color
+  case gray
+  /// green eye color
+  case green
+  /// hazel eye color
+  case hazel
+  /// maroon eye color
+  case maroon
+  /// pink eye color
+  case pink
+  /// dichromatic eye color
+  case dichromatic
+  /// unknown eye color
+  case unknown
 }
 
 /**
   AAMVA hair colors
 
-  - Bald: Bald hair
-  - Black: Black hair
-  - Blond: Blond hair
-  - Brown: Brown hair
-  - Grey: Grey hair
-  - Red: Red hair
-  - Sandy: Sandy hair
-  - White: White hair
-  - Unknown: Unknown hair color
+  - bald: bald hair
+  - black: black hair
+  - blond: blond hair
+  - brown: brown hair
+  - grey: grey hair
+  - red: red hair
+  - sandy: sandy hair
+  - white: white hair
+  - unknown: unknown hair color
 */
 public enum HairColor{
-  /// Bald hair color
-  case Bald
-  /// Black hair color
-  case Black
-  /// Blond hair color
-  case Blond
-  /// Brown hair color
-  case Brown
-  /// Grey hair color
-  case Grey
-  /// Red hair color
-  case Red
-  /// Sandy hair color
-  case Sandy
-  /// White hair color
-  case White
-  /// Unknown hair color
-  case Unknown
+  /// bald hair color
+  case bald
+  /// black hair color
+  case black
+  /// blond hair color
+  case blond
+  /// brown hair color
+  case brown
+  /// grey hair color
+  case grey
+  /// red hair color
+  case red
+  /// sandy hair color
+  case sandy
+  /// white hair color
+  case white
+  /// unknown hair color
+  case unknown
 }
 
 /**
   AAMVA Name Truncations
 
-  - Truncated: The name was truncated
-  - None: The name was not truncated
-  - Unknown: When the truncation cannot be determined
+  - truncated: The name was truncated
+  - none: The name was not truncated
+  - unknown: When the truncation cannot be determined
 */
 public enum Truncation{
-  /// Truncated Name
-  case Truncated
-  /// Not Truncated
-  case None
-  /// Unknown Truncation
-  case Unknown
+  /// truncated Name
+  case truncated
+  /// Not truncated
+  case none
+  /// unknown Truncation
+  case unknown
 }
 
 /**
   AAMVA Name Suffixes
 
-  - Junior: Junior, Jr.
-  - Senior: Senior, Sr.
-  - First: First, I, 1st
-  - Second: Second, II, 2nd
-  - Third: Third, III, 3rd
-  - Fourth: Fourth, IV, 4th
+  - junior: junior, Jr.
+  - senior: senior, Sr.
+  - first: first, I, 1st
+  - second: second, II, 2nd
+  - third: third, III, 3rd
+  - fourth: fourth, IV, 4th
   - Fifth: Fifth, V, 5th
   - Sixth: Sixth, VI, 6th
   - Seventh: Seventh, VII, 7th
   - Eighth: Eighth, VIII, 8th
   - Ninth: Ninth, IX, 9th
-  - Unknown: When the name suffix is unknown
+  - unknown: When the name suffix is unknown
 */
 public enum NameSuffix{
-  /// Junior, Jr.
-  case Junior
-  /// Senior, Sr.
-  case Senior
-  /// First, I, 1st
-  case First
-  /// Second, II, 2nd
-  case Second
-  /// Third, III, 3rd
-  case Third
-  /// Fourth, IV, 4th
-  case Fourth
+  /// junior, Jr.
+  case junior
+  /// senior, Sr.
+  case senior
+  /// first, I, 1st
+  case first
+  /// second, II, 2nd
+  case second
+  /// third, III, 3rd
+  case third
+  /// fourth, IV, 4th
+  case fourth
   /// Fifth, V, 5th
-  case Fifth
+  case fifth
   /// Sixth, VI, 6th
-  case Sixth
+  case sixth
   /// Seventh, VII, 7th
-  case Seventh
+  case seventh
   /// Eighth, VIII, 8th
-  case Eighth
+  case eighth
   /// Ninth, IX, 9th
-  case Ninth
+  case ninth
   /// When the name suffix is unknown
-  case Unknown
+  case unknown
 }

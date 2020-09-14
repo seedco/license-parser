@@ -303,14 +303,14 @@ public class FieldParser: FieldParsing{
     - Returns: An optional value parsed out of the raw data
   */
   public func parseCountry() -> IssuingCountry{
-    guard let country = parseString(key: "country") else { return .Unknown }
+    guard let country = parseString(key: "country") else { return .unknown }
     switch country{
     case "USA":
-      return .UnitedStates
+      return .unitedStates
     case "CAN":
-      return .Canada
+      return .canada
     default:
-      return .Unknown
+      return .unknown
     }
   }
 
@@ -320,15 +320,15 @@ public class FieldParser: FieldParsing{
     - Returns: An optional value parsed out of the raw data
   */
   public func parseTruncationStatus(field: String) -> Truncation{
-    guard let truncation = parseString(key: field) else { return .Unknown }
+    guard let truncation = parseString(key: field) else { return .unknown }
 
     switch truncation{
     case "T":
-      return .Truncated
+      return .truncated
     case "N":
-      return .None
+      return .none
     default:
-      return .Unknown
+      return .unknown
     }
   }
 
@@ -338,14 +338,14 @@ public class FieldParser: FieldParsing{
     - Returns: An optional value parsed out of the raw data
   */
   public func parseGender() -> Gender{
-    guard let gender = parseString(key: "gender") else { return .Unknown }
+    guard let gender = parseString(key: "gender") else { return .unknown }
     switch gender {
     case "1":
-      return .Male
+      return .male
     case "2":
-      return .Female
+      return .female
     default:
-      return .Other
+      return .other
     }
   }
 
@@ -355,28 +355,28 @@ public class FieldParser: FieldParsing{
     - Returns: An optional value parsed out of the raw data
   */
   public func parseEyeColor() -> EyeColor{
-    guard let color = parseString(key: "eyeColor") else { return .Unknown }
+    guard let color = parseString(key: "eyeColor") else { return .unknown }
     switch color{
     case "BLK":
-      return .Black
+      return .black
     case "BLU":
-      return .Blue
+      return .blue
     case "BRO":
-      return .Brown
+      return .brown
     case "GRY":
-      return .Gray
+      return .gray
     case "GRN":
-      return .Green
+      return .green
     case "HAZ":
-      return .Hazel
+      return .hazel
     case "MAR":
-      return .Maroon
+      return .maroon
     case "PNK":
-      return .Pink
+      return .pink
     case "DIC":
-      return .Dichromatic
+      return .dichromatic
     default:
-      return .Unknown
+      return .unknown
     }
   }
 
@@ -386,33 +386,33 @@ public class FieldParser: FieldParsing{
     - Returns: An optional value parsed out of the raw data
   */
   public func parseNameSuffix() -> NameSuffix{
-    guard let suffix = parseString(key: "suffix") else { return .Unknown }
+    guard let suffix = parseString(key: "suffix") else { return .unknown }
 
     switch suffix{
     case "JR":
-      return .Junior
+      return .junior
     case "SR":
-      return .Senior
+      return .senior
     case "1ST", "I":
-      return .First
+      return .first
     case "2ND", "II":
-      return .Second
+      return .second
     case "3RD", "III":
-      return .Third
+      return .third
     case "4TH", "IV":
-      return .Fourth
+      return .fourth
     case "5TH", "V":
-      return .Fifth
+      return .fifth
     case "6TH", "VI":
-      return .Sixth
+      return .sixth
     case "7TH", "VII":
-      return .Seventh
+      return .seventh
     case "8TH", "VIII":
-      return .Eighth
+      return .eighth
     case "9TH", "IX":
-      return .Ninth
+      return .ninth
     default:
-      return .Unknown
+      return .unknown
     }
   }
 
@@ -422,27 +422,27 @@ public class FieldParser: FieldParsing{
     - Returns: An optional value parsed out of the raw data
   */
   public func parseHairColor() -> HairColor{
-    guard let color = parseString(key: "hairColor") else { return .Unknown }
+    guard let color = parseString(key: "hairColor") else { return .unknown }
 
     switch color {
     case "BAL":
-      return .Bald
+      return .bald
     case "BLK":
-      return .Black
+      return .black
     case "BLN":
-      return .Blond
+      return .blond
     case "BRO":
-      return .Brown
+      return .brown
     case "GRY":
-      return .Grey
+      return .grey
     case "RED":
-      return .Red
+      return .red
     case "SDY":
-      return .Sandy
+      return .sandy
     case "WHI":
-      return .White
+      return .white
     default:
-      return .Unknown
+      return .unknown
     }
   }
 
