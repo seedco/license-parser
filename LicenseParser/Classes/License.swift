@@ -22,10 +22,10 @@ public struct License: ParsedLicense{
   public var dateOfBirth: Date?
 
   /// The license holder's gender
-  public var gender: LicenseParser.Gender
+  public var gender: Gender
 
   /// The license holder's eye color
-  public var eyeColor: LicenseParser.EyeColor
+  public var eyeColor: EyeColor
 
   /// The license holder's height
   public var height: Double?
@@ -49,22 +49,22 @@ public struct License: ParsedLicense{
   public var documentId: String?
 
   /// The license's issuing country
-  public var country: LicenseParser.IssuingCountry
+  public var country: IssuingCountry
 
   /// A determination of if the middle name was truncated
-  public var middleNameTruncation: LicenseParser.Truncation
+  public var middleNameTruncation: Truncation
 
   /// A determination of if the first name was truncated
-  public var firstNameTruncation: LicenseParser.Truncation
+  public var firstNameTruncation: Truncation
 
   /// A determination of if the last name was truncated
-  public var lastNameTruncation: LicenseParser.Truncation
+  public var lastNameTruncation: Truncation
 
   /// The license holder's supplemental street address
   public var streetAddressSupplement: String?
 
   /// The license holder's hair color
-  public var hairColor: LicenseParser.HairColor
+  public var hairColor: HairColor
 
   /// The license holder's place of birth
   public var placeOfBirth: String?
@@ -85,7 +85,7 @@ public struct License: ParsedLicense{
   public var suffixAlias: String?
 
   /// The license holder's name suffix
-  public var suffix: LicenseParser.NameSuffix
+  public var suffix: NameSuffix
 
   /// The AAMVA version to which this parsed license conforms
   public var version: String?
@@ -277,9 +277,9 @@ public protocol ParsedLicense{
   /// The license holder's date of birth
   var dateOfBirth: Date? { get set }
   /// The license holder's gender
-  var gender: LicenseParser.Gender { get set }
+  var gender: Gender { get set }
   /// The license holder's eye color
-  var eyeColor: LicenseParser.EyeColor { get set }
+  var eyeColor: EyeColor { get set }
   /// The license holder's height
   var height: Double? { get set }
   /// The license holder's street address
@@ -295,17 +295,17 @@ public protocol ParsedLicense{
   /// A unique document identifier
   var documentId: String? { get set }
   /// The license's issuing country
-  var country: LicenseParser.IssuingCountry { get set }
+  var country: IssuingCountry { get set }
   /// A determination of if the middle name was truncated
-  var middleNameTruncation: LicenseParser.Truncation { get set }
+  var middleNameTruncation: Truncation { get set }
   /// A determination of if the first name was truncated
-  var firstNameTruncation: LicenseParser.Truncation { get set }
+  var firstNameTruncation: Truncation { get set }
   /// A determination of if the last name was truncated
-  var lastNameTruncation: LicenseParser.Truncation { get set }
+  var lastNameTruncation: Truncation { get set }
   /// The license holder's supplemental street address
   var streetAddressSupplement: String? { get set }
   /// The license holder's hair color
-  var hairColor: LicenseParser.HairColor { get set }
+  var hairColor: HairColor { get set }
   /// The license holder's place of birth
   var placeOfBirth: String? { get set }
   /// The license issuer's audit information
@@ -319,7 +319,7 @@ public protocol ParsedLicense{
   /// The license holder's name suffix alias
   var suffixAlias: String? { get set }
   /// The license holder's name suffix
-  var suffix: LicenseParser.NameSuffix { get set }
+  var suffix: NameSuffix { get set }
   /// The AAMVA version to which this parsed license conforms
   var version: String? {get set}
   /// The raw pdf417 scan data used to build this parsed license
