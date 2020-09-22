@@ -9,14 +9,14 @@
 import Foundation
 
 protocol AcceptanceCalculating{
-  var license: ParsedLicense { get set }
+  var license: License { get set }
   func calculate() -> Bool
 }
 
 class AcceptanceCalculator: AcceptanceCalculating{
-  var license: ParsedLicense
+  var license: License
 
-  init(license: ParsedLicense){
+  init(license: License){
     self.license = license
   }
 

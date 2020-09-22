@@ -1,6 +1,6 @@
 import Foundation
 
-/// A Parser for creating ParsedLicense objects
+/// A Parser for creating License objects
 public class Parser{
   let regex: Regex = Regex()
 
@@ -16,7 +16,7 @@ public class Parser{
     - Parameters:
       - data: The AAMVA PDF417 raw barcode data
 
-    - Returns: A configured Parser ready to parse and generate a ParsedLicense
+    - Returns: A configured Parser ready to parse and generate a License
   */
   public init(data: String){
     self.data = data
@@ -26,9 +26,9 @@ public class Parser{
   /**
     Parses the AAMVA PDF417 raw barcode data based on the specific AAMVA document version
 
-    - Returns: A ParsedLicense with all available parsed fields
+    - Returns: A License with all available parsed fields
   */
-  public func parse() -> ParsedLicense{
+  public func parse() -> License{
     self.fieldParser = versionBasedFieldParsing(version: parseVersion())
 
     return License(

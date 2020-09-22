@@ -7,7 +7,7 @@ import Foundation
   - canda: Canada, eh?
   - unknown: When the issuing country is not available
 */
-public enum IssuingCountry{
+public enum IssuingCountry: Equatable {
   /// The United States
   case unitedStates
 
@@ -26,7 +26,7 @@ public enum IssuingCountry{
   - other: Not yet part of the AAMVA spec
   - unknown: When the gender cannot be determined
 */
-public enum Gender{
+public enum Gender: Equatable {
 
   /// male
   case male
@@ -55,7 +55,7 @@ public enum Gender{
   - dichromatic: dichromatic eyes
   - unknown: unknown eye color
 */
-public enum EyeColor{
+public enum EyeColor: Equatable {
   /// black eye color
   case black
   /// blue eye color
@@ -119,7 +119,7 @@ public enum HairColor{
   - none: The name was not truncated
   - unknown: When the truncation cannot be determined
 */
-public enum Truncation{
+public enum Truncation: Equatable {
   /// truncated Name
   case truncated
   /// Not truncated
@@ -144,7 +144,7 @@ public enum Truncation{
   - Ninth: Ninth, IX, 9th
   - unknown: When the name suffix is unknown
 */
-public enum NameSuffix{
+public enum NameSuffix: Equatable {
   /// junior, Jr.
   case junior
   /// senior, Sr.

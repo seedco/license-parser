@@ -1,7 +1,7 @@
 import Foundation
 
 /// A Representation of the scanned AAMVA License
-public struct License: ParsedLicense{
+public struct License: Equatable {
 
   /// The license holder's first/given name
   public var firstName: String?
@@ -260,89 +260,4 @@ public struct License: ParsedLicense{
 
     return true
   }
-}
-
-/// Represents the behavior of a parsed license
-public protocol ParsedLicense{
-  /// The license holder's first/given name
-  var firstName: String? { get set }
-  /// The license holder's last/given name
-  var lastName: String? { get set }
-  /// The license holder's middle name
-  var middleName: String? { get set }
-  /// The expiration date of the license
-  var expirationDate: Date? { get set }
-  /// The issue date of the license
-  var issueDate: Date? { get set }
-  /// The license holder's date of birth
-  var dateOfBirth: Date? { get set }
-  /// The license holder's gender
-  var gender: Gender { get set }
-  /// The license holder's eye color
-  var eyeColor: EyeColor { get set }
-  /// The license holder's height
-  var height: Double? { get set }
-  /// The license holder's street address
-  var streetAddress: String? { get set }
-  /// The license holder's city
-  var city: String? { get set }
-  /// The license holder's state
-  var state: String? { get set }
-  /// The license holder's postal code
-  var postalCode: String? { get set }
-  /// The license holder's customer Id (e.g. Driver License Number)
-  var customerId: String? { get set }
-  /// A unique document identifier
-  var documentId: String? { get set }
-  /// The license's issuing country
-  var country: IssuingCountry { get set }
-  /// A determination of if the middle name was truncated
-  var middleNameTruncation: Truncation { get set }
-  /// A determination of if the first name was truncated
-  var firstNameTruncation: Truncation { get set }
-  /// A determination of if the last name was truncated
-  var lastNameTruncation: Truncation { get set }
-  /// The license holder's supplemental street address
-  var streetAddressSupplement: String? { get set }
-  /// The license holder's hair color
-  var hairColor: HairColor { get set }
-  /// The license holder's place of birth
-  var placeOfBirth: String? { get set }
-  /// The license issuer's audit information
-  var auditInformation: String? { get set }
-  /// The license issuer's
-  var inventoryControlNumber: String? { get set }
-  /// The license holder's last name alias
-  var lastNameAlias: String? { get set }
-  /// The license holder's first name alias
-  var firstNameAlias: String? { get set }
-  /// The license holder's name suffix alias
-  var suffixAlias: String? { get set }
-  /// The license holder's name suffix
-  var suffix: NameSuffix { get set }
-  /// The AAMVA version to which this parsed license conforms
-  var version: String? {get set}
-  /// The raw pdf417 scan data used to build this parsed license
-  var pdf417: String? {get set}
-
-  /**
-    Determine if the license has expired
-
-    - Returns: True or False
-  */
-  func isExpired() -> Bool
-
-  /**
-    Determine if the license has been issues
-
-    - Returns: True or false
-  */
-  func hasBeenIssued() -> Bool
-
-  /**
-    Determine if the license has enough valid data
-
-    - Returns: True or False
-  */
-  func isAcceptable() -> Bool
 }
