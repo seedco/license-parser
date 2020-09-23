@@ -32,140 +32,140 @@ class VersionOneParserSpec: QuickSpec {
             it("should reveal the correct suffix"){
               let sut = LicenseParser.Parser(data: "DCUJR\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.suffix).to(equal(LicenseParser.NameSuffix.Junior))
+              expect(result.suffix).to(equal(LicenseParser.NameSuffix.junior))
             }
           }
           context("when the suffix is senior"){
             it("should reveal the correct suffix"){
               let sut = LicenseParser.Parser(data: "DCUSR\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.suffix).to(equal(LicenseParser.NameSuffix.Senior))
+              expect(result.suffix).to(equal(LicenseParser.NameSuffix.senior))
             }
           }
           context("when the suffix is 1ST"){
             it("should reveal the correct suffix"){
               let sut = LicenseParser.Parser(data: "DCU1ST\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.suffix).to(equal(LicenseParser.NameSuffix.First))
+              expect(result.suffix).to(equal(LicenseParser.NameSuffix.first))
             }
           }
           context("when the suffix is 2ND"){
             it("should reveal the correct suffix"){
               let sut = LicenseParser.Parser(data: "DCU2ND\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.suffix).to(equal(LicenseParser.NameSuffix.Second))
+              expect(result.suffix).to(equal(LicenseParser.NameSuffix.second))
             }
           }
           context("when the suffix is 3RD"){
             it("should reveal the correct suffix"){
               let sut = LicenseParser.Parser(data: "DCU3RD\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.suffix).to(equal(LicenseParser.NameSuffix.Third))
+              expect(result.suffix).to(equal(LicenseParser.NameSuffix.third))
             }
           }
           context("when the suffix is 4TH"){
             it("should reveal the correct suffix"){
               let sut = LicenseParser.Parser(data: "DCU4TH\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.suffix).to(equal(LicenseParser.NameSuffix.Fourth))
+              expect(result.suffix).to(equal(LicenseParser.NameSuffix.fourth))
             }
           }
           context("when the suffix is 5TH"){
             it("should reveal the correct suffix"){
               let sut = LicenseParser.Parser(data: "DCU5TH\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.suffix).to(equal(LicenseParser.NameSuffix.Fifth))
+              expect(result.suffix).to(equal(LicenseParser.NameSuffix.fifth))
             }
           }
           context("when the suffix is 6TH"){
             it("should reveal the correct suffix"){
               let sut = LicenseParser.Parser(data: "DCU6TH\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.suffix).to(equal(LicenseParser.NameSuffix.Sixth))
+              expect(result.suffix).to(equal(LicenseParser.NameSuffix.sixth))
             }
           }
           context("when the suffix is 7TH"){
             it("should reveal the correct suffix"){
               let sut = LicenseParser.Parser(data: "DCU7TH\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.suffix).to(equal(LicenseParser.NameSuffix.Seventh))
+              expect(result.suffix).to(equal(LicenseParser.NameSuffix.seventh))
             }
           }
           context("when the suffix is 8TH"){
             it("should reveal the correct suffix"){
               let sut = LicenseParser.Parser(data: "DCU8TH\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.suffix).to(equal(LicenseParser.NameSuffix.Eighth))
+              expect(result.suffix).to(equal(LicenseParser.NameSuffix.eighth))
             }
           }
           context("when the suffix is 9TH"){
             it("should reveal the correct suffix"){
               let sut = LicenseParser.Parser(data: "DCU9TH\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.suffix).to(equal(LicenseParser.NameSuffix.Ninth))
+              expect(result.suffix).to(equal(LicenseParser.NameSuffix.ninth))
             }
           }
           context("when the suffix is I"){
             it("should reveal the correct suffix"){
               let sut = LicenseParser.Parser(data: "DCUI\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.suffix).to(equal(LicenseParser.NameSuffix.First))
+              expect(result.suffix).to(equal(LicenseParser.NameSuffix.first))
             }
           }
           context("when the suffix is II"){
             it("should reveal the correct suffix"){
               let sut = LicenseParser.Parser(data: "DCUII\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.suffix).to(equal(LicenseParser.NameSuffix.Second))
+              expect(result.suffix).to(equal(LicenseParser.NameSuffix.second))
             }
           }
           context("when the suffix is III"){
             it("should reveal the correct suffix"){
               let sut = LicenseParser.Parser(data: "DCUIII\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.suffix).to(equal(LicenseParser.NameSuffix.Third))
+              expect(result.suffix).to(equal(LicenseParser.NameSuffix.third))
             }
           }
           context("when the suffix is IV"){
             it("should reveal the correct suffix"){
               let sut = LicenseParser.Parser(data: "DCUIV\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.suffix).to(equal(LicenseParser.NameSuffix.Fourth))
+              expect(result.suffix).to(equal(LicenseParser.NameSuffix.fourth))
             }
           }
           context("when the suffix is V"){
             it("should reveal the correct suffix"){
               let sut = LicenseParser.Parser(data: "DCUV\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.suffix).to(equal(LicenseParser.NameSuffix.Fifth))
+              expect(result.suffix).to(equal(LicenseParser.NameSuffix.fifth))
             }
           }
           context("when the suffix is VI"){
             it("should reveal the correct suffix"){
               let sut = LicenseParser.Parser(data: "DCUVI\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.suffix).to(equal(LicenseParser.NameSuffix.Sixth))
+              expect(result.suffix).to(equal(LicenseParser.NameSuffix.sixth))
             }
           }
           context("when the suffix is VII"){
             it("should reveal the correct suffix"){
               let sut = LicenseParser.Parser(data: "DCUVII\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.suffix).to(equal(LicenseParser.NameSuffix.Seventh))
+              expect(result.suffix).to(equal(LicenseParser.NameSuffix.seventh))
             }
           }
           context("when the suffix is VIII"){
             it("should reveal the correct suffix"){
               let sut = LicenseParser.Parser(data: "DCUVIII\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.suffix).to(equal(LicenseParser.NameSuffix.Eighth))
+              expect(result.suffix).to(equal(LicenseParser.NameSuffix.eighth))
             }
           }
           context("when the suffix is IX"){
             it("should reveal the correct suffix"){
               let sut = LicenseParser.Parser(data: "DCUIX\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.suffix).to(equal(LicenseParser.NameSuffix.Ninth))
+              expect(result.suffix).to(equal(LicenseParser.NameSuffix.ninth))
             }
           }
         }
@@ -234,79 +234,79 @@ class VersionOneParserSpec: QuickSpec {
 
       describe("Parsing the Hair Color"){
         context("when the hair color is present"){
-          context("when the hair color is Bald"){
+          context("when the hair color is bald"){
             it("should reveal the correct hair color"){
               let sut = LicenseParser.Parser(data: "DAZBAL\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.hairColor).to(equal(LicenseParser.HairColor.Bald))
+              expect(result.hairColor).to(equal(LicenseParser.HairColor.bald))
             }
           }
-          context("when the hair color is Black"){
+          context("when the hair color is black"){
             it("should reveal the correct hair color"){
               let sut = LicenseParser.Parser(data: "DAZBLK\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.hairColor).to(equal(LicenseParser.HairColor.Black))
+              expect(result.hairColor).to(equal(LicenseParser.HairColor.black))
             }
           }
-          context("when the hair color is Blond"){
+          context("when the hair color is blond"){
             it("should reveal the correct hair color"){
               let sut = LicenseParser.Parser(data: "DAZBLN\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.hairColor).to(equal(LicenseParser.HairColor.Blond))
+              expect(result.hairColor).to(equal(LicenseParser.HairColor.blond))
 
             }
           }
-          context("when the hair color is Brown"){
+          context("when the hair color is brown"){
             it("should reveal the correct hair color"){
               let sut = LicenseParser.Parser(data: "DAZBRO\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.hairColor).to(equal(LicenseParser.HairColor.Brown))
+              expect(result.hairColor).to(equal(LicenseParser.HairColor.brown))
 
             }
           }
-          context("when the hair color is Grey"){
+          context("when the hair color is grey"){
             it("should reveal the correct hair color"){
               let sut = LicenseParser.Parser(data: "DAZGRY\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.hairColor).to(equal(LicenseParser.HairColor.Grey))
+              expect(result.hairColor).to(equal(LicenseParser.HairColor.grey))
 
             }
           }
-          context("when the hair color is Red/Auburn"){
+          context("when the hair color is red/Auburn"){
             it("should reveal the correct hair color"){
               let sut = LicenseParser.Parser(data: "DAZRED\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.hairColor).to(equal(LicenseParser.HairColor.Red))
+              expect(result.hairColor).to(equal(LicenseParser.HairColor.red))
 
             }
           }
-          context("when the hair color is Sandy"){
+          context("when the hair color is sandy"){
             it("should reveal the correct hair color"){
               let sut = LicenseParser.Parser(data: "DAZSDY\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.hairColor).to(equal(LicenseParser.HairColor.Sandy))
+              expect(result.hairColor).to(equal(LicenseParser.HairColor.sandy))
 
             }
           }
-          context("when the hair color is White "){
+          context("when the hair color is white "){
             it("should reveal the correct hair color"){
               let sut = LicenseParser.Parser(data: "DAZWHI\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.hairColor).to(equal(LicenseParser.HairColor.White))
+              expect(result.hairColor).to(equal(LicenseParser.HairColor.white))
 
             }
           }
-          context("when the hair color is Unknown"){
+          context("when the hair color is unknown"){
             it("should reveal the correct hair color"){
               let sut = LicenseParser.Parser(data: "DAZFFF\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.hairColor).to(equal(LicenseParser.HairColor.Unknown))
+              expect(result.hairColor).to(equal(LicenseParser.HairColor.unknown))
             }
           }
         }
       }
 
-      describe("Parsing the Second Street Address Line"){
+      describe("Parsing the second Street Address Line"){
         context("when the street address supplement is present"){
           it("should reveal the supplemental street address"){
             let sut = LicenseParser.Parser(data: self.validLicenseData())
@@ -378,79 +378,79 @@ class VersionOneParserSpec: QuickSpec {
 
       describe("Parsing Eye Color"){
         context("when the eye color is present"){
-          context("when the eye color is Black"){
+          context("when the eye color is black"){
             it("should reveal the correct eye color"){
               let sut = LicenseParser.Parser(data: "DAYBLK\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.eyeColor).to(equal(LicenseParser.EyeColor.Black))
+              expect(result.eyeColor).to(equal(LicenseParser.EyeColor.black))
             }
           }
-          context("when the eye color is Blue"){
+          context("when the eye color is blue"){
             it("should reveal the correct eye color"){
               let sut = LicenseParser.Parser(data: "DAYBLU\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.eyeColor).to(equal(LicenseParser.EyeColor.Blue))
+              expect(result.eyeColor).to(equal(LicenseParser.EyeColor.blue))
 
             }
           }
-          context("when the eye color is Brown"){
+          context("when the eye color is brown"){
             it("should reveal the correct eye color"){
               let sut = LicenseParser.Parser(data: "DAYBRO\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.eyeColor).to(equal(LicenseParser.EyeColor.Brown))
+              expect(result.eyeColor).to(equal(LicenseParser.EyeColor.brown))
 
             }
           }
-          context("when the eye color is Gray"){
+          context("when the eye color is gray"){
             it("should reveal the correct eye color"){
               let sut = LicenseParser.Parser(data: "DAYGRY\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.eyeColor).to(equal(LicenseParser.EyeColor.Gray))
+              expect(result.eyeColor).to(equal(LicenseParser.EyeColor.gray))
 
             }
           }
-          context("when the eye color is Green"){
+          context("when the eye color is green"){
             it("should reveal the correct eye color"){
               let sut = LicenseParser.Parser(data: "DAYGRN\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.eyeColor).to(equal(LicenseParser.EyeColor.Green))
+              expect(result.eyeColor).to(equal(LicenseParser.EyeColor.green))
             }
           }
-          context("when the eye color is Hazel"){
+          context("when the eye color is hazel"){
             it("should reveal the correct eye color"){
               let sut = LicenseParser.Parser(data: "DAYHAZ\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.eyeColor).to(equal(LicenseParser.EyeColor.Hazel))
+              expect(result.eyeColor).to(equal(LicenseParser.EyeColor.hazel))
             }
           }
-          context("when the eye color is Maroon "){
+          context("when the eye color is maroon "){
             it("should reveal the correct eye color"){
               let sut = LicenseParser.Parser(data: "DAYMAR\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.eyeColor).to(equal(LicenseParser.EyeColor.Maroon))
+              expect(result.eyeColor).to(equal(LicenseParser.EyeColor.maroon))
             }
           }
-          context("when the eye color is Pink"){
+          context("when the eye color is pink"){
             it("should reveal the correct eye color"){
               let sut = LicenseParser.Parser(data: "DAYPNK\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.eyeColor).to(equal(LicenseParser.EyeColor.Pink))
+              expect(result.eyeColor).to(equal(LicenseParser.EyeColor.pink))
 
             }
           }
-          context("when the eye color is Dichromatic"){
+          context("when the eye color is dichromatic"){
             it("should reveal the correct eye color"){
               let sut = LicenseParser.Parser(data: "DAYDIC\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.eyeColor).to(equal(LicenseParser.EyeColor.Dichromatic))
+              expect(result.eyeColor).to(equal(LicenseParser.EyeColor.dichromatic))
 
             }
           }
-          context("when the eye color is Unknown"){
+          context("when the eye color is unknown"){
             it("should reveal the correct eye color"){
               let sut = LicenseParser.Parser(data: "DAYUNK\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.eyeColor).to(equal(LicenseParser.EyeColor.Unknown))
+              expect(result.eyeColor).to(equal(LicenseParser.EyeColor.unknown))
             }
           }
         }
@@ -459,24 +459,24 @@ class VersionOneParserSpec: QuickSpec {
       describe("Parsing the gender"){
         context("when the gender is present"){
           context("when the gender is male"){
-            it("should reveal the gender as Male"){
+            it("should reveal the gender as male"){
               let sut = LicenseParser.Parser(data: "DBC1\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.gender).to(equal(LicenseParser.Gender.Male))
+              expect(result.gender).to(equal(LicenseParser.Gender.male))
             }
           }
           context("when the gender is female"){
-            it("should reveal the gender as Female"){
+            it("should reveal the gender as female"){
               let sut = LicenseParser.Parser(data: "DBC2\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.gender).to(equal(LicenseParser.Gender.Female))
+              expect(result.gender).to(equal(LicenseParser.Gender.female))
             }
           }
           context("when the gender is neither male or female"){
-            it("should reveal the gender as Other"){
+            it("should reveal the gender as other"){
               let sut = LicenseParser.Parser(data: "DBC3\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.gender).to(equal(LicenseParser.Gender.Other))
+              expect(result.gender).to(equal(LicenseParser.Gender.other))
             }
           }
         }
@@ -494,21 +494,21 @@ class VersionOneParserSpec: QuickSpec {
             it("should reveal the correct truncation status"){
               let sut = LicenseParser.Parser(data: "DDFT\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.firstNameTruncation).to(equal(LicenseParser.Truncation.Truncated))
+              expect(result.firstNameTruncation).to(equal(LicenseParser.Truncation.truncated))
             }
           }
           context("when the first name was not truncated"){
             it("should reveal the correct truncation status"){
               let sut = LicenseParser.Parser(data: "DDFN\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.firstNameTruncation).to(equal(LicenseParser.Truncation.None))
+              expect(result.firstNameTruncation).to(equal(LicenseParser.Truncation.none))
             }
           }
           context("when the truncation of the first name is unknown"){
             it("should reveal the correct truncation status"){
               let sut = LicenseParser.Parser(data: "DDFU\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.firstNameTruncation).to(equal(LicenseParser.Truncation.Unknown))
+              expect(result.firstNameTruncation).to(equal(LicenseParser.Truncation.unknown))
             }
           }
 
@@ -537,21 +537,21 @@ class VersionOneParserSpec: QuickSpec {
             it("should reveal the correct truncation status"){
               let sut = LicenseParser.Parser(data: "DDGT\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.middleNameTruncation).to(equal(LicenseParser.Truncation.Truncated))
+              expect(result.middleNameTruncation).to(equal(LicenseParser.Truncation.truncated))
             }
           }
           context("when the middle name was not truncated"){
             it("should reveal the correct truncation status"){
               let sut = LicenseParser.Parser(data: "DDGN\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.middleNameTruncation).to(equal(LicenseParser.Truncation.None))
+              expect(result.middleNameTruncation).to(equal(LicenseParser.Truncation.none))
             }
           }
           context("when the truncation of the middle name is unknown"){
             it("should reveal the correct truncation status"){
               let sut = LicenseParser.Parser(data: "DDGU\n")
               let result: LicenseParser.ParsedLicense = sut.parse()
-              expect(result.middleNameTruncation).to(equal(LicenseParser.Truncation.Unknown))
+              expect(result.middleNameTruncation).to(equal(LicenseParser.Truncation.unknown))
             }
           }
         }
@@ -563,9 +563,9 @@ class VersionOneParserSpec: QuickSpec {
             let sut = LicenseParser.Parser(data: self.validLicenseData())
             let result: LicenseParser.ParsedLicense = sut.parse()
 
-            let formatter = NSDateFormatter()
+            let formatter = DateFormatter()
             formatter.dateFormat = "yyyyMMdd"
-            let expectedDate = formatter.dateFromString("20350131")
+            let expectedDate = formatter.date(from: "20350131")
 
             expect(result.expirationDate).to(equal(expectedDate))
           }
@@ -595,9 +595,9 @@ class VersionOneParserSpec: QuickSpec {
             let sut = LicenseParser.Parser(data: self.validLicenseData())
             let result: LicenseParser.ParsedLicense = sut.parse()
 
-            let formatter = NSDateFormatter()
+            let formatter = DateFormatter()
             formatter.dateFormat = "MMddyyyy"
-            let expectedDate = formatter.dateFromString("10032013")
+            let expectedDate = formatter.date(from: "10032013")
 
             expect(result.issueDate).to(equal(expectedDate))
           }
@@ -627,9 +627,9 @@ class VersionOneParserSpec: QuickSpec {
             let sut = LicenseParser.Parser(data: self.validLicenseData())
             let result: LicenseParser.ParsedLicense = sut.parse()
 
-            let formatter = NSDateFormatter()
+            let formatter = DateFormatter()
             formatter.dateFormat = "yyyyMMdd"
-            let expectedDate = formatter.dateFromString("19700115")
+            let expectedDate = formatter.date(from: "19700115")
 
             expect(result.dateOfBirth).to(equal(expectedDate))
           }

@@ -1,7 +1,7 @@
 import Foundation
 
 /// A Representation of the scanned AAMVA License
-public struct License: ParsedLicense{
+public struct License: Equatable {
 
   /// The license holder's first/given name
   public var firstName: String?
@@ -13,19 +13,19 @@ public struct License: ParsedLicense{
   public var middleName: String?
 
   /// The expiration date of the license
-  public var expirationDate: NSDate?
+  public var expirationDate: Date?
 
   /// The issue date of the license
-  public var issueDate: NSDate?
+  public var issueDate: Date?
 
   /// The license holder's date of birth
-  public var dateOfBirth: NSDate?
+  public var dateOfBirth: Date?
 
   /// The license holder's gender
-  public var gender: LicenseParser.Gender
+  public var gender: Gender
 
   /// The license holder's eye color
-  public var eyeColor: LicenseParser.EyeColor
+  public var eyeColor: EyeColor
 
   /// The license holder's height
   public var height: Double?
@@ -49,22 +49,22 @@ public struct License: ParsedLicense{
   public var documentId: String?
 
   /// The license's issuing country
-  public var country: LicenseParser.IssuingCountry
+  public var country: IssuingCountry
 
   /// A determination of if the middle name was truncated
-  public var middleNameTruncation: LicenseParser.Truncation
+  public var middleNameTruncation: Truncation
 
   /// A determination of if the first name was truncated
-  public var firstNameTruncation: LicenseParser.Truncation
+  public var firstNameTruncation: Truncation
 
   /// A determination of if the last name was truncated
-  public var lastNameTruncation: LicenseParser.Truncation
+  public var lastNameTruncation: Truncation
 
   /// The license holder's supplemental street address
   public var streetAddressSupplement: String?
 
   /// The license holder's hair color
-  public var hairColor: LicenseParser.HairColor
+  public var hairColor: HairColor
 
   /// The license holder's place of birth
   public var placeOfBirth: String?
@@ -85,7 +85,7 @@ public struct License: ParsedLicense{
   public var suffixAlias: String?
 
   /// The license holder's name suffix
-  public var suffix: LicenseParser.NameSuffix
+  public var suffix: NameSuffix
 
   /// The AAMVA version to which this parsed license conforms
   public var version: String?
@@ -132,7 +132,7 @@ public struct License: ParsedLicense{
   */
   public init(
     firstName: String?, lastName: String?, middleName: String?,
-    expirationDate: NSDate?, issueDate: NSDate?, dateOfBirth: NSDate?,
+    expirationDate: Date?, issueDate: Date?, dateOfBirth: Date?,
     gender: Gender, eyeColor: EyeColor, height: Double?, streetAddress: String?,
     city: String?, state: String?, postalCode: String?, customerId: String?,
     documentId: String?, country: IssuingCountry, middleNameTruncation: Truncation,
@@ -187,8 +187,8 @@ public struct License: ParsedLicense{
     self.expirationDate          = nil
     self.issueDate               = nil
     self.dateOfBirth             = nil
-    self.gender                  = Gender.Unknown
-    self.eyeColor                = EyeColor.Unknown
+    self.gender                  = Gender.unknown
+    self.eyeColor                = EyeColor.unknown
     self.height                  = nil
     self.streetAddress           = nil
     self.city                    = nil
@@ -196,19 +196,19 @@ public struct License: ParsedLicense{
     self.postalCode              = nil
     self.customerId              = nil
     self.documentId              = nil
-    self.country                 = IssuingCountry.UnitedStates
-    self.middleNameTruncation    = Truncation.None
-    self.firstNameTruncation     = Truncation.None
-    self.lastNameTruncation      = Truncation.None
+    self.country                 = IssuingCountry.unitedStates
+    self.middleNameTruncation    = Truncation.none
+    self.firstNameTruncation     = Truncation.none
+    self.lastNameTruncation      = Truncation.none
     self.streetAddressSupplement = nil
-    self.hairColor               = HairColor.Unknown
+    self.hairColor               = HairColor.unknown
     self.placeOfBirth            = nil
     self.auditInformation        = nil
     self.inventoryControlNumber  = nil
     self.lastNameAlias           = nil
     self.firstNameAlias          = nil
     self.suffixAlias             = nil
-    self.suffix                  = NameSuffix.Unknown
+    self.suffix                  = NameSuffix.unknown
     self.version                 = nil
     self.pdf417                  = nil
   }
@@ -220,7 +220,7 @@ public struct License: ParsedLicense{
   */
   public func isExpired() -> Bool {
     guard let withDate = self.expirationDate else { return false }
-    guard NSDate().compare(withDate) == NSComparisonResult.OrderedDescending else { return false }
+    guard Date().compare(withDate as Date) == ComparisonResult.orderedDescending else { return false }
     return true
   }
 
@@ -231,7 +231,7 @@ public struct License: ParsedLicense{
   */
   public func hasBeenIssued() -> Bool {
     guard let withDate = self.issueDate else { return false }
-    guard NSDate().compare(withDate) == NSComparisonResult.OrderedDescending else { return false }
+    guard Date().compare(withDate as Date) == ComparisonResult.orderedDescending else { return false }
     return true
   }
 
@@ -260,89 +260,4 @@ public struct License: ParsedLicense{
 
     return true
   }
-}
-
-/// Represents the behavior of a parsed license
-public protocol ParsedLicense{
-  /// The license holder's first/given name
-  var firstName: String? { get set }
-  /// The license holder's last/given name
-  var lastName: String? { get set }
-  /// The license holder's middle name
-  var middleName: String? { get set }
-  /// The expiration date of the license
-  var expirationDate: NSDate? { get set }
-  /// The issue date of the license
-  var issueDate: NSDate? { get set }
-  /// The license holder's date of birth
-  var dateOfBirth: NSDate? { get set }
-  /// The license holder's gender
-  var gender: LicenseParser.Gender { get set }
-  /// The license holder's eye color
-  var eyeColor: LicenseParser.EyeColor { get set }
-  /// The license holder's height
-  var height: Double? { get set }
-  /// The license holder's street address
-  var streetAddress: String? { get set }
-  /// The license holder's city
-  var city: String? { get set }
-  /// The license holder's state
-  var state: String? { get set }
-  /// The license holder's postal code
-  var postalCode: String? { get set }
-  /// The license holder's customer Id (e.g. Driver License Number)
-  var customerId: String? { get set }
-  /// A unique document identifier
-  var documentId: String? { get set }
-  /// The license's issuing country
-  var country: LicenseParser.IssuingCountry { get set }
-  /// A determination of if the middle name was truncated
-  var middleNameTruncation: LicenseParser.Truncation { get set }
-  /// A determination of if the first name was truncated
-  var firstNameTruncation: LicenseParser.Truncation { get set }
-  /// A determination of if the last name was truncated
-  var lastNameTruncation: LicenseParser.Truncation { get set }
-  /// The license holder's supplemental street address
-  var streetAddressSupplement: String? { get set }
-  /// The license holder's hair color
-  var hairColor: LicenseParser.HairColor { get set }
-  /// The license holder's place of birth
-  var placeOfBirth: String? { get set }
-  /// The license issuer's audit information
-  var auditInformation: String? { get set }
-  /// The license issuer's
-  var inventoryControlNumber: String? { get set }
-  /// The license holder's last name alias
-  var lastNameAlias: String? { get set }
-  /// The license holder's first name alias
-  var firstNameAlias: String? { get set }
-  /// The license holder's name suffix alias
-  var suffixAlias: String? { get set }
-  /// The license holder's name suffix
-  var suffix: LicenseParser.NameSuffix { get set }
-  /// The AAMVA version to which this parsed license conforms
-  var version: String? {get set}
-  /// The raw pdf417 scan data used to build this parsed license
-  var pdf417: String? {get set}
-
-  /**
-    Determine if the license has expired
-
-    - Returns: True or False
-  */
-  func isExpired() -> Bool
-
-  /**
-    Determine if the license has been issues
-
-    - Returns: True or false
-  */
-  func hasBeenIssued() -> Bool
-
-  /**
-    Determine if the license has enough valid data
-
-    - Returns: True or False
-  */
-  func isAcceptable() -> Bool
 }
